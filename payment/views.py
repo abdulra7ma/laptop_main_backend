@@ -1,7 +1,7 @@
 # Create your views here.
 
 from django.http import JsonResponse
-from requests import Response
+from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
@@ -14,7 +14,7 @@ def item_list(request):
     if request.method == 'GET':
         items = Items.objects.all()
         serializer = ItemsSerializer(items, many=True)
-        return JsonResponse({"items": serializer.data})
+        return Response({"items": serializer.data})
     if request.method == 'POST':
         serializer = ItemsSerializer(data=request.data)
         if serializer.is_valid():
