@@ -9,6 +9,7 @@ packages = [{include = "laptop_main_backend"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.2.2"
+isort = "^5.12.0"
 
 
 [build-system]
